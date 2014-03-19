@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define VERSION "0.01a Devel"
+#define VERSION "0.02"
 #define AUTHOR "xfuw89 <leonid.x212@gmail.com>"
 #define LICENSE "GNU GPL v3"
 
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
 				while(i+1 < argc)
 				{
 					sscanf(argv[++i], "%ld", &buff);
-					printf("%lX", buff);
+					printf("%lX\x20", buff);
 				}
 
 				printf("\n");
@@ -193,7 +193,7 @@ int main(int argc, char **argv)
 
 				while(i+1 < argc)
 				{
-					sscanf(argv[++i], "%d", &buff);
+					sscanf(argv[++i], "%ld", &buff);
 					printf("%c", buff);
 				}
 				printf("\n");
