@@ -1,6 +1,6 @@
 /*
 *  Simple ASCII / BIN / DEC / HEX converter
-*  Copyright 2014 xfuw89 (email: leonid.x212@gmail.com)
+*  Copyright Leonid Plyushch © 2014 <leonid.x212@gmail.com>
 *
 *  This program is free software: you can redistribute it and/or modify
 *  it under the terms of the GNU General Public License as published by
