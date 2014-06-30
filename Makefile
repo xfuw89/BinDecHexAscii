@@ -1,11 +1,11 @@
 ################################################
 
-BIN		:= conv
-OBJ		:= conv.o
-SRC		:= conv.c
+BIN		:= bindechexascii
+OBJ		:= bindechexascii.o
+SRC		:= bindechexascii.c
 
 CC		:= gcc
-CFLAGS		:= -g -march=native
+CFLAGS+		:= -g -march=native
 LFLAGS		:=
 
 ################################################
@@ -13,9 +13,9 @@ LFLAGS		:=
 all: $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) -o $(BIN)
+	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) $(LFLAGS) $(OBJ) -o $(BIN)
 $(OBJ): $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
+	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -c $(SRC) -o $(OBJ)
 
 clean:
 	rm -f $(BIN) $(OBJ)

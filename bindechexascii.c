@@ -26,7 +26,7 @@
 
 void print_usage()
 {
-	puts("\nUsage: conv [mode] arg1 arg2 arg3 ...\n");
+	puts("\nUsage: bindechexascii [mode] arg1 arg2 arg3 ...\n");
 	puts("Convert:");
 	puts("\x20--b2d     Binary to decimal");
 	puts("\x20--b2h     Binary to hexadecimal");
@@ -40,7 +40,6 @@ void print_usage()
 	puts("\x20--a2b     ASCII to binary");
 	puts("\x20--a2d     ASCII to decimal");
 	puts("\x20--a2h     ASCII to hexadecimal\n");
-	puts("Other:");
 	puts("\x20-h --help    Print this help");
 	puts("\x20-i --info    Print information about program\n");
 }
