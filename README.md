@@ -4,8 +4,8 @@ BinDecHexAscii
 Simple ASCII, binary, decimal, hexadecimal converter
 
 ### How to build:
-	- $ ./configure
-    - $ make
+	$ ./configure
+	$ make
 
 
 
