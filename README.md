@@ -3,11 +3,13 @@ BinDecHexAscii
 
 Simple ASCII, binary, decimal, hexadecimal converter
 
-How to build:
-	$ ./configure
-	$ make
+### How to build:
+	- $ ./configure
+    - $ make
 
-Options:
+
+
+### Options:
 
 	--b2d     Binary to decimal
 	--b2h     Binary to hexadecimal
