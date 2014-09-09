@@ -1,21 +1,17 @@
 ################################################
 
 BIN		:= bindechexascii
-OBJ		:= bindechexascii.o
-SRC		:= bindechexascii.c
+SRC		:= main.c converter.c num_check.c
 
 CC		:= gcc
-CFLAGS+		:= -g -march=native
-LFLAGS		:=
+CFLAGS		:= -g -std=gnu99 -Iinclude -march=native
 
 ################################################
 
 all: $(BIN)
 
-$(BIN): $(OBJ)
-	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) $(LFLAGS) $(OBJ) -o $(BIN)
-$(OBJ): $(SRC)
-	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -c $(SRC) -o $(OBJ)
+$(BIN): $(SRC)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(SRC) -o $(BIN) $(LDFLAGS)
 
 clean:
-	rm -f $(BIN) $(OBJ)
+	rm -f $(BIN)
