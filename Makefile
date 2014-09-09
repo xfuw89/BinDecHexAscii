@@ -1,11 +1,9 @@
 ################################################
-
 BIN		:= bindechexascii
-SRC		:= main.c converter.c num_check.c
+SRC		:= $(wildcard src/*.c)
 
 CC		:= gcc
 CFLAGS		:= -g -std=gnu99 -Iinclude -march=native
-
 ################################################
 
 all: $(BIN)
