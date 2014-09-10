@@ -21,6 +21,5 @@
 #include <stdbool.h>
 
 bool is_bin(char ch);
+bool is_oct(char ch);
 bool is_dec(char ch);
-bool is_hex(char ch);
-

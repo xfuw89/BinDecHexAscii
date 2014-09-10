@@ -25,7 +25,7 @@
 #include "converter.h"
 #include "num_check.h"
 
-#define VERSION "0.3a"
+#define VERSION "0.3b"
 #define AUTHOR  "xfuw89 <leonid.x212@gmail.com>"
 #define LICENSE "GNU GPL v3"
 
@@ -34,16 +34,24 @@ void print_usage()
 {
 	puts("\nUsage: bindechexascii [mode] arg1 arg2 arg3 ...\n");
 	puts("Options:");
+	puts("\x20--b2o     Binary to octal");
 	puts("\x20--b2d     Binary to decimal");
 	puts("\x20--b2h     Binary to hexadecimal");
 	puts("\x20--b2a     Binary to ASCII\n");
+	puts("\x20--o2b     Octal to binary");
+	puts("\x20--o2d     Octal to decimal");
+	puts("\x20--o2h     Octal to hexadecimal");
+	puts("\x20--o2a     Octal to ASCII\n");
 	puts("\x20--d2b     Decimal to binary");
+	puts("\x20--d2o     Decimal to octal");
 	puts("\x20--d2h     Decimal to hexadecimal");
 	puts("\x20--d2a     Decimal to ASCII\n");
 	puts("\x20--h2b     Hexadecimal to binary");
+	puts("\x20--h2o     Hexadecimal to octal");
 	puts("\x20--h2d     Hexadecimal to decimal");
 	puts("\x20--h2a     Hexadecimal to ASCII\n");
 	puts("\x20--a2b     ASCII to binary");
+	puts("\x20--a2o     ASCII to octal");
 	puts("\x20--a2d     ASCII to decimal");
 	puts("\x20--a2h     ASCII to hexadecimal\n");
 	puts("\x20-h --help    Print this help");
@@ -64,9 +72,23 @@ int main(int argc, char **argv)
 	{
 		for(int i=1; i<argc; i++)
 		{
-			if(strcmp(argv[i], "--b2d") == 0)
+			if(strcmp(argv[i], "--b2o") == 0)
 			{
-				printf("Decimal out:\x20");
+				printf("OCT:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					bin2oct(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
+			else if(strcmp(argv[i], "--b2d") == 0)
+			{
+				printf("DEC:\x20");
 
 				while(i+1 < argc)
 				{
@@ -80,7 +102,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--b2h") == 0)
 			{
-				printf("Hexadecimal out:\x20");
+				printf("HEX:\x20");
 
 				while(i+1 < argc)
 				{
@@ -94,7 +116,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--b2a") == 0)
 			{
-				printf("ASCII out:\x20");
+				printf("ASCII:\x20");
 
 				while(i+1 < argc)
 				{
@@ -106,9 +128,72 @@ int main(int argc, char **argv)
 
 				break;
 			}
+
+
+
+
+			else if(strcmp(argv[i], "--o2b") == 0)
+			{
+				printf("BIN:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					oct2bin(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
+			else if(strcmp(argv[i], "--o2d") == 0)
+			{
+				printf("DEC:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					oct2dec(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
+			else if(strcmp(argv[i], "--o2h") == 0)
+			{
+				printf("HEX:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					oct2hex(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
+			else if(strcmp(argv[i], "--o2a") == 0)
+			{
+				printf("ASCII:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					oct2ascii(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
+
+
+
 			else if(strcmp(argv[i], "--d2b") == 0)
 			{
-				printf("Binary out:\x20");
+				printf("BIN:\x20");
 
 				while(i+1 < argc)
 				{
@@ -120,9 +205,23 @@ int main(int argc, char **argv)
 
 				break;
 			}
+			else if(strcmp(argv[i], "--d2o") == 0)
+			{
+				printf("OCT:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					dec2oct(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
 			else if(strcmp(argv[i], "--d2h") == 0)
 			{
-				printf("Hexadecimal out:\x20");
+				printf("HEX:\x20");
 
 				while(i+1 < argc)
 				{
@@ -136,7 +235,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--d2a") == 0)
 			{
-				printf("ASCII out:\x20");
+				printf("ASCII:\x20");
 
 				while(i+1 < argc)
 				{
@@ -150,7 +249,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--h2b") == 0)
 			{
-				printf("Binary out:\x20");
+				printf("BIN:\x20");
 
 				while(i+1 < argc)
 				{
@@ -160,9 +259,23 @@ int main(int argc, char **argv)
 
 				printf("\n");
 			}
+			else if(strcmp(argv[i], "--h2o") == 0)
+			{
+				printf("OCT:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					hex2oct(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
 			else if(strcmp(argv[i], "--h2d") == 0)
 			{
-				printf("Decimal out:\x20");
+				printf("DEC:\x20");
 
 				while(i+1 < argc)
 				{
@@ -178,7 +291,7 @@ int main(int argc, char **argv)
 			{
 				long int buff;
 
-				printf("ASCII out:\x20");
+				printf("ASCII:\x20");
 
 				while(i+1 < argc)
 				{
@@ -192,7 +305,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--a2b") == 0)
 			{
-				printf("Binary out:\x20");
+				printf("BIN:\x20");
 
 				while(i+1 < argc)
 				{
@@ -202,9 +315,23 @@ int main(int argc, char **argv)
 
 				printf("\n");
 			}
+			else if(strcmp(argv[i], "--a2o") == 0)
+			{
+				printf("OCT:\x20");
+
+				while(i+1 < argc)
+				{
+					i++;
+					ascii2oct(argv[i]);
+				}
+
+				printf("\n");
+
+				break;
+			}
 			else if(strcmp(argv[i], "--a2d") == 0)
 			{
-				printf("Decimal out:\x20");
+				printf("DEC:\x20");
 
 				while(i+1 < argc)
 				{
@@ -216,7 +343,7 @@ int main(int argc, char **argv)
 			}
 			else if(strcmp(argv[i], "--a2h") == 0)
 			{
-				printf("Hexadecimal out:\x20");
+				printf("HEX:\x20");
 
 				while(i+1 < argc)
 				{

@@ -18,19 +18,28 @@
 *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+void bin2oct(char *input);
 void bin2dec(char *input);
 void bin2hex(char *input);
 void bin2ascii(char *input);
 
+void oct2bin(char *input);
+void oct2dec(char *input);
+void oct2hex(char *input);
+void oct2ascii(char *input);
+
 void dec2bin(char *input);
+void dec2oct(char *input);
 void dec2hex(char *input);
 void dec2ascii(char *input);
 
 void hex2bin(char *input);
+void hex2oct(char *input);
 void hex2dec(char *input);
 void hex2ascii(char *input);
 
 void ascii2bin(char *input);
+void ascii2oct(char *input);
 void ascii2dec(char *input);
 void ascii2hex(char *input);
 

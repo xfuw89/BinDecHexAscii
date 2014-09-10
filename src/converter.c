@@ -25,6 +25,26 @@
 #include "converter.h"
 #include "num_check.h"
 
+void bin2oct(char *input)
+{
+	unsigned long val = 0;
+	char tmp;
+
+	for(int i=0; i<strlen(input); i++)
+	{
+		sscanf(&input[i], "%c", &tmp);
+
+		if(!is_bin(tmp)){
+			printf("Invalid binary input !\n");
+			exit(1);
+		}
+
+		val = val * 2 + atol(&tmp);
+	}
+
+	printf("%lo\x20", val);
+}
+
 void bin2dec(char *input)
 {
 	unsigned long val = 0;
@@ -35,7 +55,7 @@ void bin2dec(char *input)
 		sscanf(&input[i], "%c", &tmp);
 
 		if(!is_bin(tmp)){
-			printf("Error\n");
+			printf("Invalid binary input !\n");
 			exit(1);
 		}
 
@@ -55,14 +75,14 @@ void bin2hex(char *input)
 		sscanf(&input[i], "%c", &tmp);
 
 		if(!is_bin(tmp)){
-			printf("Error\n");
+			printf("Invalid binary input !\n");
 			exit(1);
 		}
 
 		val = val * 2 + atol(&tmp);
 	}
 
-	printf("%lX\x20", val);
+	printf("%lx\x20", val);
 }
 
 void bin2ascii(char *input)
@@ -75,7 +95,7 @@ void bin2ascii(char *input)
 		sscanf(&input[i], "%c", &tmp);
 
 		if(!is_bin(tmp)){
-			printf("Error\n");
+			printf("Invalid binary input !\n");
 			exit(1);
 		}
 
@@ -83,6 +103,72 @@ void bin2ascii(char *input)
 	}
 
 	printf("%c\x20", val);
+}
+
+void oct2bin(char *input)
+{
+	unsigned long tmp = 0;
+	int bin[512];
+	int k=1;
+
+	if(!is_oct(input[0])){
+		printf("Invalid octal input !\n");
+		exit(1);
+	}
+
+	sscanf(input, "%lo", &tmp);
+
+	while(tmp != 0)
+	{
+		bin[k++] = tmp % 2;
+		tmp = tmp / 2;
+	}
+
+	for(int a=k-1; a>0; a--)
+	{
+		printf("%d", bin[a]);
+	}
+
+	printf("\x20");
+}
+
+void oct2dec(char *input)
+{
+	long tmp;
+
+	if(!is_oct(input[0])){
+		printf("Invalid octal input !\n");
+		exit(1);
+	}
+
+	sscanf(input, "%lo", &tmp);
+	printf("%ld\x20", tmp);
+}
+
+void oct2hex(char *input)
+{
+	long tmp;
+
+	if(!is_oct(input[0])){
+		printf("Invalid octal input !\n");
+		exit(1);
+	}
+
+	sscanf(input, "%lo", &tmp);
+	printf("%lx\x20", tmp);
+}
+
+void oct2ascii(char *input)
+{
+	long tmp;
+
+	if(!is_oct(input[0])){
+		printf("Invalid octal input !\n");
+		exit(1);
+	}
+
+	sscanf(input, "%ld", &tmp);
+	printf("%lo\x20", tmp);
 }
 
 void dec2bin(char *input)
@@ -107,12 +193,20 @@ void dec2bin(char *input)
 	printf("\x20");
 }
 
+void dec2oct(char *input)
+{
+	long tmp;
+
+	sscanf(input, "%ld", &tmp);
+	printf("%lo\x20", tmp);
+}
+
 void dec2hex(char *input)
 {
 	long tmp;
 
 	sscanf(input, "%ld", &tmp);
-	printf("%lX\x20", tmp);
+	printf("%lx\x20", tmp);
 }
 
 void dec2ascii(char *input)
@@ -166,11 +260,19 @@ void hex2bin(char *input)
 	printf("\x20");
 }
 
+void hex2oct(char *input)
+{
+	long tmp;
+
+	sscanf(input, "%lx", &tmp);
+	printf("%lo\x20", tmp);
+}
+
 void hex2dec(char *input)
 {
 	long tmp;
 
-	sscanf(input, "%lX", &tmp);
+	sscanf(input, "%lx", &tmp);
 	printf("%ld\x20", tmp);
 }
 
@@ -178,7 +280,7 @@ void hex2ascii(char *input)
 {
 	long tmp;
 
-	sscanf(input, "%lX", &tmp);
+	sscanf(input, "%lx", &tmp);
 	printf("%c", tmp);
 }
 
@@ -199,6 +301,14 @@ void ascii2bin(char *input)
 	}
 }
 
+void ascii2oct(char *input)
+{
+	for(int i=0; i<strlen(input); i++)
+	{
+		printf("%o\x20", input[i]);
+	}
+}
+
 void ascii2dec(char *input)
 {
 	for(int i=0; i<strlen(input); i++)
@@ -211,7 +321,7 @@ void ascii2hex(char *input)
 {
 	for(int i=0; i<strlen(input); i++)
 	{
-		printf("%X\x20", input[i]);
+		printf("%x\x20", input[i]);
 	}
 }
 
