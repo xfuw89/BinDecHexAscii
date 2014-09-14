@@ -1,4 +1,4 @@
-AC_INIT([bindechexascii], [0.3a], [leonid.x212@gmail.com])
+AC_INIT([bindechexascii], [0.4], [leonid.x212@gmail.com])
 AM_INIT_AUTOMAKE([foreign])
 AC_PROG_CC
 AC_CONFIG_HEADERS([config.h])
