@@ -4,7 +4,6 @@ BinDecHexAscii
    BinDecHexAscii is a multi-call program that converts the argument from standard input to the specified numbering system or character set (ASCII) and prints the result on the screen. That way you can perform the conversion between ASCII, binary, octal, decimal, hexadecimal. Program can also convert between bases 2-36.
 
 ### How to build:
-	$ autoreconf --install
 	$ ./configure
 	$ make
 	$ make install
